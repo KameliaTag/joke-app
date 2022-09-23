@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  docker: circleci/docker@2.1.4
 
 workflows:
   build:
@@ -24,3 +25,8 @@ workflows:
             branches:
               only:
                 - circleci
+      
+      - docker/publish:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          update-description: true
+
