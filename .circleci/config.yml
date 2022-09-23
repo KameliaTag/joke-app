@@ -12,10 +12,10 @@ jobs:
       - checkout
       - docker/check
       - docker/build:
-          image: $DOCKER_USERNAME/joke-api
+          image: $DOCKER_LOGIN/joke-api
       - docker/push:
           digest-path: /tmp/digest.txt
-          image: $DOCKER_USERNAME/joke-api
+          image: $DOCKER_LOGIN/joke-api
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
